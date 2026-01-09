@@ -1,0 +1,76 @@
+# Visual Studio 2026 - .gitignore di base per progetti .NET/C#
+# Ignora file generati, output di build, impostazioni utente e cache degli IDE
+
+# Cartelle di build
+[Bb]in/
+[Oo]bj/
+Debug/
+Release/
+x64/
+x86/
+build/
+out/
+publish/
+
+# Visual Studio locali e file utente
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Pacchetti / NuGet
+packages/
+*.nupkg
+.nuget/
+
+# Test e copertura
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+
+# Logs, database e file temporanei
+*.log
+*.sqlite
+*.db
+*.pid
+*.tmp
+
+# Certificati e chiavi
+*.pfx
+*.snk
+
+# File generati / interop
+*_i.c
+*_p.c
+*.generated.cs
+
+# JetBrains Rider / IntelliJ
+.idea/
+*.sln.iml
+*.DotSettings.user
+_ReSharper*/
+
+# Tool e configurazioni locali
+.tools/
+*.vsix
+*.publishsettings
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Visual C++ specific
+*.ilk
+*.meta
+*.obj
+*.idb
+*.ipdb
+
+# Optional: se usi Docker
+docker-compose.override.yml
+
+# Fine
