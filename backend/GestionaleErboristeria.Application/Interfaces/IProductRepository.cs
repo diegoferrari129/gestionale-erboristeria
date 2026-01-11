@@ -1,6 +1,6 @@
 ﻿using GestionaleErboristeria.Domain.Entities;
 
-namespace GestionaleErboristeria.Application
+namespace GestionaleErboristeria.Application.Interfaces
 {
 
     /// <summary>
