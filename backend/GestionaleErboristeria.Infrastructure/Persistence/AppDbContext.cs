@@ -1,11 +1,11 @@
 ﻿using GestionaleErboristeria.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace GestionaleErboristeria.Infrastructure.Persistance
+namespace GestionaleErboristeria.Infrastructure.Persistence
 {
-    public class DbContex : DbContext
+    public class AppDbContext : DbContext
     {
-        public DbContex(DbContextOptions<DbContex> options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 

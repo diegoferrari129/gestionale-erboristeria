@@ -1,6 +1,6 @@
 ﻿using GestionaleErboristeria.Application.Interfaces;
 using GestionaleErboristeria.Domain.Entities;
-using GestionaleErboristeria.Infrastructure.Persistance;
+using GestionaleErboristeria.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestionaleErboristeria.Infrastructure.Repositories
@@ -13,9 +13,9 @@ namespace GestionaleErboristeria.Infrastructure.Repositories
     /// encapsulate batch-related persistence logic.</remarks>
     public class BatchRepository : IBatchRepository
     {
-        private readonly DbContex _context;
+        private readonly AppDbContext _context;
 
-        public BatchRepository(DbContex context)
+        public BatchRepository(AppDbContext context)
         {
             _context = context;
         }

@@ -1,3 +1,8 @@
+using GestionaleErboristeria.Application.Interfaces;
+using GestionaleErboristeria.Application.Services;
+using GestionaleErboristeria.Infrastructure.Persistence;
+using GestionaleErboristeria.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestionaleErboristeria.Api
 {
@@ -8,6 +13,13 @@ namespace GestionaleErboristeria.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddScoped<IBatchService, BatchService>();
+
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IBatchRepository, BatchRepository>();
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

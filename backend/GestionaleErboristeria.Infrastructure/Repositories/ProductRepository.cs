@@ -1,6 +1,6 @@
 ﻿using GestionaleErboristeria.Application.Interfaces;
 using GestionaleErboristeria.Domain.Entities;
-using GestionaleErboristeria.Infrastructure.Persistance;
+using GestionaleErboristeria.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestionaleErboristeria.Infrastructure.Repositories
@@ -13,9 +13,9 @@ namespace GestionaleErboristeria.Infrastructure.Repositories
     /// database context.</remarks>
     public class ProductRepository : IProductRepository
     {
-        private readonly DbContex _contex;
+        private readonly AppDbContext _contex;
 
-        public ProductRepository(DbContex contex)
+        public ProductRepository(AppDbContext contex)
         {
             _contex = contex;
         }
