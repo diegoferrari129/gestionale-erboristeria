@@ -42,5 +42,10 @@ namespace GestionaleErboristeria.Infrastructure.Repositories
             _contex.Products.Update(product);
             await _contex.SaveChangesAsync();
         }
+        public async Task DeleteProductAsync(Product product)
+        {
+            _contex.Products.Remove(product);
+            await _contex.SaveChangesAsync();
+        }
     }
 }
