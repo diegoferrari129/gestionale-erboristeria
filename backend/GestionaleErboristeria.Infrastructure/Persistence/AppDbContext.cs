@@ -14,10 +14,10 @@ namespace GestionaleErboristeria.Infrastructure.Persistence
         public DbSet<Product> Products => Set<Product>();
         public DbSet<Category> Categories => Set<Category>();
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            DataSeeder.Seed(modelBuilder);
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+          //  base.OnModelCreating(modelBuilder);
+            //DataSeeder.Seed(modelBuilder);
+        //}
     }
 }
