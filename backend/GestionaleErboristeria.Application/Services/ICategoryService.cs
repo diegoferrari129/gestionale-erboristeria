@@ -5,8 +5,10 @@ namespace GestionaleErboristeria.Application.Services
 {
     public interface ICategoryService
     {
+        Task CreateCategoryAsync(CreateCategoryDto dto);
         Task<IEnumerable<Category>> GetAllCategoriesAsync();
         Task<Category?> GetCategoryAsync(int id);
-        Task CreateCategoryAsync(CreateCategoryDto dto);
+        Task UpdateCategoryAsync(int id, UpdateCategoryDto dto);
+        Task DeleteCategoryAsync(int id);
     }
 }

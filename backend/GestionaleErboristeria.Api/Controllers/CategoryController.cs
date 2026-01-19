@@ -41,5 +41,21 @@ namespace GestionaleErboristeria.Api.Controllers
                 return NotFound();
             return Ok(category);
         }
+
+        // PUT
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCategory(int id, [FromBody] UpdateCategoryDto dto)
+        {
+            await _categoryService.UpdateCategoryAsync(id, dto);
+            return NoContent();
+        }
+
+        // DELETE
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            await _categoryService.DeleteCategoryAsync(id);
+            return NoContent();
+        }
     }
 }
