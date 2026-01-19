@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GestionaleErboristeria.Domain.Entities
+﻿namespace GestionaleErboristeria.Domain.Entities
 {
     public class Category : BaseEntity
     {
         public string Name { get; set; } = null!;
+        public string? Description { get; set; }
+
+        // relationship
+        public ICollection<Product> Products { get; set; } = new List<Product>();
     }
 }
