@@ -12,7 +12,7 @@ namespace GestionaleErboristeria.Application.Interfaces
 
     public interface IProductRepository
     {
-        Task<Product> GetProductAsync(int productId);
+        Task<Product?> GetProductAsync(int productId);
         Task<IEnumerable<Product>> GetAllProductsAsync();
         Task AddProductAsync(Product product);
         Task UpdateProductAsync(Product product);

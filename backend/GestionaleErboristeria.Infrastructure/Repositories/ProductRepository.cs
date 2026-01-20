@@ -23,12 +23,15 @@ namespace GestionaleErboristeria.Infrastructure.Repositories
         public async Task<Product?> GetProductAsync(int productId)
         {
             return await _contex.Products
+                .Include(p => p.Category)
                 .FirstOrDefaultAsync(p => p.Id == productId);
         }
 
         public async Task<IEnumerable<Product>> GetAllProductsAsync()
         {
-            return await _contex.Products.ToListAsync();
+            return await _contex.Products
+                .Include(p => p.Category)
+                .ToListAsync();
         }
 
         public async Task AddProductAsync(Product product)

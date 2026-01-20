@@ -30,14 +30,42 @@ namespace GestionaleErboristeria.Application.Services
             await _productRepository.AddProductAsync(product);
         }
 
-        public async Task<IEnumerable<Product>> GetAllProductsAsync()
+        public async Task<IEnumerable<ProductDto>> GetAllProductsAsync()
         {
-            return await _productRepository.GetAllProductsAsync();
+            var products = await _productRepository.GetAllProductsAsync();
+            return products.Select(p => new ProductDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Description = p.Description,
+                ProductCode = p.ProductCode,
+                Price = p.Price,
+                Category = new CategoryDto
+                {
+                    Id = p.Category.Id,
+                    Name = p.Category.Name
+                }
+            });
         }
 
-        public async Task<Product?> GetProductAsync(int id)
+        public async Task<ProductDto?> GetProductAsync(int id)
         {
-            return await _productRepository.GetProductAsync(id);
+            var product = await _productRepository.GetProductAsync(id);
+            if (product == null)
+                return null;
+            return new ProductDto
+                {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                ProductCode = product.ProductCode,
+                Price = product.Price,
+                Category = new CategoryDto
+                {
+                    Id = product.Category.Id,
+                    Name = product.Category.Name
+                }
+            };
         }
 
         public async Task UpdateAsync(int id, UpdateProductDto dto)
