@@ -38,7 +38,8 @@ namespace GestionaleErboristeria.Infrastructure.Repositories
 
         public async Task DeleteCategoryAsync(Category category)
         {
-            _context.Categories.Remove(category);
+            // _context.Categories.Remove(category);
+            category.IsDeleted = true;
             await _context.SaveChangesAsync();
         }
     }
