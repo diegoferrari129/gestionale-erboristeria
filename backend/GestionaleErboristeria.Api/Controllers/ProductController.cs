@@ -62,12 +62,12 @@ namespace GestionaleErboristeria.Api.Controllers
         }
 
         // DELETE
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(int id)
+        [HttpDelete("{productId}")]
+        public async Task<IActionResult> DeleteProduct(int productId)
         {
             try
             {
-                await _productService.DeleteAsync(id);
+                await _productService.DeleteAsync(productId);
             }
             catch (ArgumentException ex)
             {

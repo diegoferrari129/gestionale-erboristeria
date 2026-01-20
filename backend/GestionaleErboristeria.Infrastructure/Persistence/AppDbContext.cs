@@ -21,6 +21,9 @@ namespace GestionaleErboristeria.Infrastructure.Persistence
             modelBuilder.Entity<Category>()
                 .HasQueryFilter(c => !c.IsDeleted);
 
+            modelBuilder.Entity<Product>()
+                .HasQueryFilter(p => !p.IsDeleted);
+
             //DataSeeder.Seed(modelBuilder);
         }
     }

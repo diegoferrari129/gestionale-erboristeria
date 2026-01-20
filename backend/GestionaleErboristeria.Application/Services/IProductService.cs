@@ -9,6 +9,6 @@ namespace GestionaleErboristeria.Application.Services
         Task<IEnumerable<ProductDto>> GetAllProductsAsync();
         Task<ProductDto?> GetProductAsync(int id);
         Task UpdateAsync(int id, UpdateProductDto dto);
-        Task DeleteAsync(int id);
+        Task DeleteAsync(int productId);
     }
 }

@@ -84,14 +84,14 @@ namespace GestionaleErboristeria.Application.Services
             await _productRepository.UpdateProductAsync(product);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(int productId)
         {
-            var product = await _productRepository.GetProductAsync(id);
+            var product = await _productRepository.GetProductAsync(productId);
 
             if (product == null)
-                throw new ArgumentException($"Product with ID {id} does not exist.");
+                throw new ArgumentException($"Product with ID {productId} does not exist.");
 
-            await _productRepository.DeleteProductAsync(product);
+            await _productRepository.DeleteProductAsync(productId);
         }
     }
 }

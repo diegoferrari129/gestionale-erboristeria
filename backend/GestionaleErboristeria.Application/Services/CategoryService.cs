@@ -52,7 +52,7 @@ namespace GestionaleErboristeria.Application.Services
             {
                 throw new Exception("Category not found");
             }
-            await _categoryRepository.DeleteCategoryAsync(category);
+            await _categoryRepository.DeleteCategoryAsync(id);
         }
     }
 }
