@@ -12,6 +12,9 @@ namespace GestionaleErboristeria.Application.Interfaces
 
     public interface IProductRepository
     {
+        //checking uniqueness of product code
+        Task<bool> ProductIsUniqueAsync(string productCode);
+
         Task<Product?> GetProductAsync(int productId);
         Task<IEnumerable<Product>> GetAllProductsAsync();
         Task AddProductAsync(Product product);

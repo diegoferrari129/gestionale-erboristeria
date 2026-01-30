@@ -4,6 +4,8 @@ namespace GestionaleErboristeria.Application.Interfaces
 {
     public interface ICategoryRepository
     {
+        Task<bool> CategoryExistsAsync(int categoryId);
+
         Task<IEnumerable<Category>> GetAllCategoriesAsync();
         Task<Category?> GetCategoryByIdAsync(int id);
         Task AddCategoryAsync(Category category);

@@ -10,14 +10,18 @@ namespace GestionaleErboristeria.Application.Services
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public ProductService(IProductRepository productRepository)
+        public ProductService(IProductRepository productRepository, ICategoryRepository categoryRepository)
         {
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
         }
 
         public async Task CreateProductAsync(CreateProductDto dto)
         {
+            var categoryExists = await _categoryRepository.CategoryExistsAsync(dto.CategoryId);
+            var productIsUnique = await _productRepository.ProductIsUniqueAsync(dto.ProductCode);
             var product = new Product
             {
                 Name = dto.Name,

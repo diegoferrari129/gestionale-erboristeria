@@ -14,6 +14,11 @@ namespace GestionaleErboristeria.Infrastructure.Repositories
             _context = context;
         }
 
+        public async Task<bool> CategoryExistsAsync(int categoryId)
+        {
+            return await _context.Categories.AnyAsync(c => c.Id == categoryId && !c.IsDeleted);
+        }
+
         public async Task AddCategoryAsync(Category category)
         {
             await _context.Categories.AddAsync(category);

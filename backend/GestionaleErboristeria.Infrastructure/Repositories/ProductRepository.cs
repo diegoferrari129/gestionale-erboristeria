@@ -20,6 +20,12 @@ namespace GestionaleErboristeria.Infrastructure.Repositories
             _contex = contex;
         }
 
+        public async Task<bool> ProductIsUniqueAsync(string productCode)
+        {
+            return await _contex.Products
+                .AnyAsync(p => p.ProductCode == productCode && !p.IsDeleted);
+        }
+
         public async Task<Product?> GetProductAsync(int productId)
         {
             return await _contex.Products
