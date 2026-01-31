@@ -79,6 +79,21 @@ namespace GestionaleErboristeria.Application.Services
             if (product == null)
                 throw new ArgumentException($"Product with ID {id} does not exist.");
 
+            if (product.ProductCode != dto.ProductCode)
+            {
+                var productIsUnique = await _productRepository.ProductIsUniqueAsync(dto.ProductCode);
+
+                if (!productIsUnique)
+                    throw new ArgumentException($"Product with code {dto.ProductCode} already exists.");
+            }
+
+            if (product.CategoryId != dto.CategoryId)
+            {
+                var categoryExists = await _categoryRepository.CategoryExistsAsync(dto.CategoryId);
+                if (!categoryExists)
+                    throw new ArgumentException($"Category with ID {dto.CategoryId} does not exist.");
+            }
+
             product.Name = dto.Name;
             product.Description = dto.Description;
             product.ProductCode = dto.ProductCode;
